@@ -1,0 +1,6 @@
+*.asset -text
+*.meta -text
+*.unity -text
+*.prefab -text
+
+
