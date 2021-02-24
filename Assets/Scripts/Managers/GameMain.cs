@@ -1,8 +1,10 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using Factory;
 using SLGLib;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class GameMain : MonoBehaviour
 {
@@ -40,5 +42,26 @@ public class GameMain : MonoBehaviour
     {
         // CheckerManager.Instance.Init();
         _controller.OnGameStart();
+
+        RunTest();
+    }
+
+    void RunTest()
+    {
+        JojoFactory jojoFamily = new JojoFactory();
+        DioFactory dioFamily = new DioFactory();
+        
+        jojoFamily.SpawnPerson();
+        dioFamily.SpawnPerson();
+        Debug.Log("=====> JoJo and Dio is spawned!");
+        
+        var jojoStand = jojoFamily.SpawnStand();
+        var dioStand = dioFamily.SpawnStand();
+        Debug.Log("=====> JoJo and Dio is spawned!");
+        
+        dioStand.Attack();
+        jojoStand.Attack();
+        
+        Debug.Log("=====> to be continued");
     }
 }
